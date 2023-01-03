@@ -7,6 +7,7 @@ require (
 	github.com/gin-contrib/sessions v0.0.5
 	github.com/gin-gonic/gin v1.8.2
 	github.com/go-redis/redis v6.15.9+incompatible
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/joho/godotenv v1.4.0
 	golang.org/x/crypto v0.4.0
 	gopkg.in/go-playground/validator.v8 v8.18.2

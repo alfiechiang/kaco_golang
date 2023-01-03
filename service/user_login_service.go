@@ -1,6 +1,7 @@
 package service
 
 import (
+	"kaco/auth"
 	"kaco/model"
 	"kaco/serializer"
 
@@ -34,8 +35,11 @@ func (service *UserLoginService) Login(c *gin.Context) serializer.Response {
 		return serializer.ParamErr("账号或密码错误", nil)
 	}
 
-	// 设置session
-	service.setSession(c, user)
+	// 设置accest_token
 
-	return serializer.BuildUserResponse(user)
+	token, _ := auth.GenerateToken(user)
+	data := make(map[string]interface{}, 0)
+	data["access_token"] = token
+
+	return serializer.ResponseFormat(200, " 請求成功", data)
 }

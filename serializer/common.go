@@ -41,6 +41,15 @@ func CheckLogin() Response {
 	}
 }
 
+func ResponseFormat(code int, msg string, data interface{}) Response {
+
+	res := Response{}
+	res.Code = code
+	res.Data = data
+	res.Msg = msg
+	return res
+}
+
 // Err 通用错误处理
 func Err(errCode int, msg string, err error) Response {
 	res := Response{

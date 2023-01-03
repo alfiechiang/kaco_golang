@@ -3,6 +3,7 @@ package middleware
 import (
 	"kaco/model"
 	"kaco/serializer"
+
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
