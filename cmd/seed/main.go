@@ -3,6 +3,7 @@ package main
 import (
 	"kaco/model"
 	"os"
+
 	"github.com/joho/godotenv"
 )
 
@@ -10,6 +11,8 @@ func main() {
 
 	godotenv.Load("../../.env")
 	model.Database(os.Getenv("MYSQL_DSN"))
+
+	model.DB.Exec("TRUNCATE TABLE products")
 
 	product1 := model.Product{
 		Name:        "香菇",

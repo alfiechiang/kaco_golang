@@ -1,6 +1,7 @@
 package model
 
 type Product struct {
+	ID          uint   `gorm:"primarykey"`
 	Name        string `gorm:"type:varchar(30)" json:"name"`
 	Price       int    `gorm:"type:int(11)" json:"price"`
 	Category    string `gorm:"type:varchar(30)" json:"category"`
@@ -9,7 +10,6 @@ type Product struct {
 	HotSpot     string `gorm:"type:varchar(30)" json:"hot_spot,omitempty"`
 	Description string `gorm:"type:varchar(30)" json:"description,omitempty"`
 }
-
 
 func (Product) TableName() string {
 	return "products"
