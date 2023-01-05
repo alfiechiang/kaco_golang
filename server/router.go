@@ -3,10 +3,7 @@ package server
 import (
 	"kaco/admin/product"
 	"kaco/admin/user"
-	"kaco/service/product"
-
 	"kaco/middleware"
-
 	"github.com/gin-gonic/gin"
 )
 
