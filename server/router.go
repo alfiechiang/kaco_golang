@@ -1,7 +1,10 @@
 package server
 
 import (
+	"kaco/admin/product"
 	"kaco/admin/user"
+	"kaco/service/product"
+
 	"kaco/middleware"
 
 	"github.com/gin-gonic/gin"
@@ -20,6 +23,8 @@ func NewRouter() *gin.Engine {
 	{
 		// 用户登录
 		Admin.POST("user/login", user.UserLogin)
+		Admin.GET("product", product.ProductList)
+
 		// 需要登录保护的
 		auth := Admin.Group("")
 		auth.Use(middleware.AuthRequired())

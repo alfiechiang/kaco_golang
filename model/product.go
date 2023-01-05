@@ -9,3 +9,8 @@ type Product struct {
 	HotSpot     string `gorm:"type:varchar(30)" json:"hot_spot,omitempty"`
 	Description string `gorm:"type:varchar(30)" json:"description,omitempty"`
 }
+
+
+func (Product) TableName() string {
+	return "products"
+}
