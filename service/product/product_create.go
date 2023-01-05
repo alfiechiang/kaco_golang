@@ -12,7 +12,7 @@ type ProductCreateService struct {
 	Name        string `form:"name"`
 	Price       int    `form:"price"`
 	Category    string `form:"category"`
-	HotSpot     string `form:"hot_spot"`
+	HotSpot     string `form:"hot_spot" json:"hot_spot"`
 	Description string `form:"description"`
 }
 

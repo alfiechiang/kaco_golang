@@ -7,7 +7,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// UserLogin 用户登录接口
 func ProducCreate(c *gin.Context) {
 	var service product.ProductCreateService
 	if err := c.ShouldBind(&service); err == nil {
