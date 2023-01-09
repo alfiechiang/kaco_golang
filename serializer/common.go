@@ -10,6 +10,14 @@ type Response struct {
 	Error string      `json:"error,omitempty"`
 }
 
+type PageListResponse struct {
+	Data        interface{} `json:"data"`
+	CurrentPage int         `json:"current_page"`
+	LastPage    int         `json:"last_page"`
+	PageSize    int         `json:"page_size"`
+	Total       int64       `json:"total"`
+}
+
 // TrackedErrorResponse 有追踪信息的错误响应
 type TrackedErrorResponse struct {
 	Response
@@ -39,6 +47,27 @@ func CheckLogin() Response {
 		Code: CodeCheckLogin,
 		Msg:  "未登录",
 	}
+}
+
+func PageListFormat(currentPage, pageSize int, total int64, data interface{}) PageListResponse {
+
+	lastPage := total / int64(pageSize)
+	if lastPage%int64(pageSize) > 0 {
+		lastPage++
+	}
+
+	if lastPage <= 0 {
+		lastPage++
+	}
+
+	return PageListResponse{
+		Data:        data,
+		CurrentPage: currentPage,
+		LastPage:    int(lastPage),
+		PageSize:    pageSize,
+		Total:       total,
+	}
+
 }
 
 func ResponseFormat(code int, msg string, data interface{}) Response {
